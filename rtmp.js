@@ -18,7 +18,9 @@ var spawn = require('child_process').spawn;
  */
 exports.download = function(config) {
 
-  var child = spawn('rtmpdump', ['-r', config.src, '-o', config.target]);
+  var script = config.script || 'rtmpdump';
+  
+  var child = spawn(script, ['-r', config.src, '-o', config.target]);
 
 
   // Match something like
